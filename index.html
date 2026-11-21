@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Association | Froid, Électricité & Climatisation</title>
+<style>
+:root {
+  --primary: #0879c9;
+  --dark: #10283f;
+  --light: #f3f7fb;
+  --text: #263849;
+}
+* { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
+body { font-family:Arial,sans-serif; color:var(--text); }
+a { text-decoration:none; color:inherit; }
+header {
+  position:fixed; top:0; width:100%; z-index:100;
+  background:white; box-shadow:0 2px 15px #00000012;
+}
+.navbar {
+  max-width:1200px; margin:auto; height:76px;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 25px;
+}
+.logo { font-size:20px; font-weight:800; color:var(--primary); }
+.logo span { color:var(--dark); }
+nav { display:flex; gap:25px; align-items:center; }
+nav a { font-size:14px; font-weight:600; transition:.3s; }
+nav a:hover { color:var(--primary); }
+.menu { display:none; background:none; border:0; font-size:27px; cursor:pointer; }
+
+section { padding:100px 8%; scroll-margin-top:70px; }
+.hero {
+  min-height:100vh; display:flex; align-items:center;
+  color:white;
+  background:linear-gradient(90deg,#071c31ed,#071c3170),
+  url('https://images.unsplash.com/photo-1631545806609-7b3a3a4f5d5e?auto=format&fit=crop&w=1800&q=85') center/cover;
+}
+.hero-content { max-width:760px; }
+.tag { color:#69c2ff; font-weight:bold; letter-spacing:2px; }
+.hero h1 { font-size:clamp(38px,6vw,65px); margin:22px 0; line-height:1.1; }
+.hero p { font-size:18px; line-height:1.8; color:#e0eaf4; }
+.btn {
+  display:inline-block; background:var(--primary); color:white;
+  padding:15px 25px; border-radius:5px; margin:25px 10px 0 0;
+  font-weight:bold;
+}
+.btn-outline { border:1px solid white; background:transparent; }
+.section-title { text-align:center; margin-bottom:45px; }
+.section-title h2 { font-size:34px; color:var(--dark); margin-bottom:12px; }
+.section-title p { color:#718096; line-height:1.6; }
+.about-grid,.cards,.projects { display:grid; grid-template-columns:repeat(3,1fr); gap:25px; }
+.about-grid { grid-template-columns:1fr 1fr; align-items:center; }
+.about-image img { width:100%; border-radius:12px; }
+.about-text p { line-height:1.9; margin:15px 0; }
+.card {
+  background:white; padding:30px; border-radius:10px;
+  box-shadow:0 5px 25px #0000000c; transition:.3s;
+}
+.card:hover { transform:translateY(-6px); }
+.card .icon { font-size:35px; margin-bottom:18px; }
+.card h3 { color:var(--dark); margin-bottom:12px; }
+.card p { line-height:1.7; color:#718096; }
+.light { background:var(--light); }
+.skills-grid { max-width:800px; margin:auto; }
+.skill { margin-bottom:25px; }
+.skill-label { display:flex; justify-content:space-between; margin-bottom:9px; font-weight:bold; }
+.progress { background:#dce5ef; height:10px; border-radius:20px; overflow:hidden; }
+.progress div { background:var(--primary); height:100%; border-radius:20px; }
+.project {
+  border-radius:10px; overflow:hidden; background:white;
+  box-shadow:0 5px 20px #00000012;
+}
+.project img { width:100%; height:210px; object-fit:cover; }
+.project div { padding:20px; }
+.project h3 { margin-bottom:10px; color:var(--dark); }
+.project p { color:#718096; line-height:1.6; }
+.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; }
+.contact-info p { margin:20px 0; line-height:1.7; }
+form input,form textarea {
+  width:100%; padding:15px; margin-bottom:15px;
+  border:1px solid #ddd; border-radius:5px; font:inherit;
+}
+form button { border:0; cursor:pointer; }
+footer { background:var(--dark); color:white; padding:35px 8%; text-align:center; line-height:2; }
+
+@media(max-width:850px) {
+  .menu { display:block; }
+  nav {
+    display:none; position:absolute; top:76px; left:0;
+    width:100%; background:white; padding:25px;
+    flex-direction:column; align-items:flex-start;
+  }
+  nav.active { display:flex; }
+  .cards,.projects { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:600px) {
+  section { padding:85px 6%; }
+  .about-grid,.cards,.projects,.contact-grid { grid-template-columns:1fr; }
+  .hero h1 { font-size:39px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <a href="#home" class="logo">ASSO<span>TECH</span></a>
+    <button class="menu" onclick="toggleMenu()">☰</button>
+    <nav id="navigation">
+      <a href="#home">Accueil</a>
+      <a href="#about">A propos</a>
+      <a href="#services">Services</a>
+      <a href="#skills">Skills</a>
+      <a href="#teams">Projets</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <span class="tag">INNOVATION • FORMATION • SOLIDARITÉ</span>
+    <h1>Construire les compétences de demain.</h1>
+    <p>
+      Une association engagée dans les métiers du froid,
+      de l'électricité et de la climatisation.
+      Nous formons, accompagnons et développons des solutions
+      techniques au service des communautés.
+    </p>
+    <a href="#about" class="btn">Découvrir l'association</a>
+    <a href="#contact" class="btn btn-outline">Nous contacter</a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-title">
+    <h2>À propos de nous</h2>
+    <p>Une association au service du développement technique et social.</p>
+  </div>
+  <div class="about-grid">
+    <div class="about-image">
+      <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=900&q=80" alt="Technicien au travail">
+    </div>
+    <div class="about-text">
+      <h2>Notre engagement</h2>
+      <p>
+        Notre association œuvre pour la promotion des métiers
+        techniques, la formation professionnelle et l'insertion
+        socio-économique.
+      </p>
+      <p>
+        Nous intervenons dans les domaines du froid industriel,
+        de l'électricité, de la climatisation et des installations
+        de chambres froides.
+      </p>
+      <p>
+        Notre engagement social vise également à accompagner
+        les populations et à favoriser le partage des compétences.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="light" id="services">
+  <div class="section-title">
+    <h2>Nos services</h2>
+    <p>Des solutions techniques et humaines adaptées aux besoins.</p>
+  </div>
+  <div class="cards">
+    <div class="card"><div class="icon">❄️</div>
+      <h3>Froid & Réfrigération</h3>
+      <p>Installation, maintenance et dépannage des équipements frigorifiques.</p>
+    </div>
+    <div class="card"><div class="icon">⚡</div>
+      <h3>Électricité</h3>
+      <p>Installations électriques, maintenance et solutions énergétiques.</p>
+    </div>
+    <div class="card"><div class="icon">🌬️</div>
+      <h3>Climatisation</h3>
+      <p>Installation, entretien et réparation des systèmes de climatisation.</p>
+    </div>
+    <div class="card"><div class="icon">🏭</div>
+      <h3>Chambres froides</h3>
+      <p>Conception, installation et entretien de chambres froides.</p>
+    </div>
+    <div class="card"><div class="icon">🎓</div>
+      <h3>Formation professionnelle</h3>
+      <p>Formation pratique et accompagnement dans les métiers techniques.</p>
+    </div>
+    <div class="card"><div class="icon">🤝</div>
+      <h3>Actions sociales</h3>
+      <p>Initiatives solidaires, insertion et accompagnement communautaire.</p>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="section-title">
+    <h2>Nos compétences</h2>
+    <p>Une expertise multidisciplinaire dans les métiers techniques.</p>
+  </div>
+  <div class="skills-grid">
+    <div class="skill"><div class="skill-label"><span>Froid industriel</span><span>Expertise</span></div><div class="progress"><div style="width:90%"></div></div></div>
+    <div class="skill"><div class="skill-label"><span>Électricité</span><span>Expertise</span></div><div class="progress"><div style="width:85%"></div></div></div>
+    <div class="skill"><div class="skill-label"><span>Climatisation</span><span>Expertise</span></div><div class="progress"><div style="width:90%"></div></div></div>
+    <div class="skill"><div class="skill-label"><span>Formation technique</span><span>Expertise</span></div><div class="progress"><div style="width:85%"></div></div></div>
+    <div class="skill"><div class="skill-label"><span>Engagement social</span><span>Engagement</span></div><div class="progress"><div style="width:95%"></div></div></div>
+  </div>
+</section>
+
+<section class="light" id="teams">
+  <div class="section-title">
+    <h2>Nos projets & réalisations</h2>
+    <p>Découvrez nos interventions, nos formations et nos initiatives.</p>
+  </div>
+  <div class="projects">
+    <div class="project">
+      <img src="https://images.unsplash.com/photo-1631545806609-7b3a3a4f5d5e?auto=format&fit=crop&w=700&q=80" alt="Installation frigorifique">
+      <div><h3>Installation frigorifique</h3><p>Travaux et solutions de réfrigération.</p></div>
+    </div>
+    <div class="project">
+      <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=700&q=80" alt="Formation technique">
+      <div><h3>Formation professionnelle</h3><p>Transmission des savoir-faire techniques.</p></div>
+    </div>
+    <div class="project">
+      <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&fit=crop&w=700&q=80" alt="Action communautaire">
+      <div><h3>Actions sociales</h3><p>Engagement et accompagnement communautaire.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-title">
+    <h2>Contactez-nous</h2>
+    <p>Un projet, une formation ou un partenariat ? Échangeons.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h2>Restons en contact</h2>
+      <p>📍 Adresse : Keur Massar</p>
+      <p>📞 Téléphone : +221 77 557 90 68</p>
+      <p>✉️ Email : test@test.com/p>
+      <p>🌐 Réseaux sociaux : À compléter</p>
+    </div>
+    <form onsubmit="sendMessage(event)">
+      <input type="text" id="name" placeholder="Votre nom" required>
+      <input type="email" id="email" placeholder="Votre email" required>
+      <input type="text" id="subject" placeholder="Sujet">
+      <textarea id="message" rows="5" placeholder="Votre message" required></textarea>
+      <button class="btn" type="submit">Envoyer le message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <h3>ASSOTECH</h3>
+  <p>Formation • Expertise technique • Engagement social</p>
+  <p>© 2026 Association. Tous droits réservés.</p>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('navigation').classList.toggle('active');
+}
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('navigation').classList.remove('active');
+  });
+});
+function sendMessage(event) {
+  event.preventDefault();
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const subject = document.getElementById('subject').value;
+  const message = document.getElementById('message').value;
+  const phone = '221770000000'; // Remplacer par le numéro WhatsApp
+  const text = `Bonjour, je suis ${name} (${email}).\nSujet : ${subject}\n${message}`;
+  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank');
+}
+</script>
+</body>
+</html>
